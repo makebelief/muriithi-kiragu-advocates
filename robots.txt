@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://muriithi-kiragu-advocates.vercel.app/sitemap.xml

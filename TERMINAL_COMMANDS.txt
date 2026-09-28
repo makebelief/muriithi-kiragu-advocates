@@ -1,0 +1,23 @@
+COPY AND PASTE THIS WHOLE BLOCK INTO YOUR UBUNTU TERMINAL
+
+cd ~/Downloads
+mkdir -p ~/wakili-clones
+rm -rf ~/wakili-clones/muriithi-kiragu-advocates
+unzip -o muriithi-kiragu-advocates-production.zip -d ~/wakili-clones
+cd ~/wakili-clones/muriithi-kiragu-advocates
+
+npm run check
+npm run build
+
+git init
+git add .
+git commit -m "Build Muriithi S. Kiragu & Co. Advocates website"
+git branch -M main
+gh repo create muriithi-kiragu-advocates --public --source=. --remote=origin --push
+
+vercel --prod --yes
+
+# ONLY if `gh repo create` says the repository already exists, run these instead:
+# git remote add origin https://github.com/YOUR-GITHUB-USERNAME/muriithi-kiragu-advocates.git
+# git push -u origin main
+# vercel --prod --yes
